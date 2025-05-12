@@ -8,7 +8,7 @@
     /* Global Styles */
     body {
       font-family: 'Arial', sans-serif;
-      background-color: #171a21;
+      background-color: #171a21; /* Dark background similar to Steam */
       color: #e1e1e1;
       margin: 0;
       padding: 0;
@@ -20,13 +20,13 @@
 
     h1 {
       font-size: 2.5em;
-      color: #4b7b8a;
+      color: #4b7b8a; /* Light blue color like Steam's highlight color */
       margin-bottom: 20px;
     }
 
     .container {
       text-align: center;
-      background-color: #2d333b;
+      background-color: #2d333b; /* Slightly darker background for the container */
       border-radius: 10px;
       padding: 30px;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
@@ -36,14 +36,21 @@
       padding: 10px;
       border-radius: 5px;
       border: none;
-      font-size: 1em;
+      font-size: 1.2em;
       margin-bottom: 20px;
-      width: 200px;
+      width: 250px;
       text-align: center;
+      background-color: #333; /* Darker input box */
+      color: #e1e1e1;
+    }
+
+    .input-box:focus {
+      outline: none;
+      border: 2px solid #4b7b8a; /* Blue outline when focused */
     }
 
     .button {
-      background-color: #4b7b8a;
+      background-color: #4b7b8a; /* Blue button like Steam's buttons */
       color: white;
       border: none;
       border-radius: 5px;
@@ -55,13 +62,13 @@
     }
 
     .button:hover {
-      background-color: #65a4af;
+      background-color: #65a4af; /* Lighter blue on hover */
     }
 
     p {
       font-size: 1.5em;
       margin-top: 20px;
-      color: #81b0b6;
+      color: #81b0b6; /* Soft teal for text color */
     }
 
     /* Mobile Responsiveness */
@@ -75,7 +82,7 @@
       }
 
       .input-box {
-        width: 150px;
+        width: 200px;
       }
 
       p {
@@ -118,3 +125,4 @@
 
 </body>
 </html>
+

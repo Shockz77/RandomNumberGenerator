@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Random Number Generator</title>
+  <style>
+    /* Global Styles */
+    body {
+      font-family: 'Arial', sans-serif;
+      background-color: #171a21;
+      color: #e1e1e1;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    h1 {
+      font-size: 2.5em;
+      color: #4b7b8a;
+      margin-bottom: 20px;
+    }
+
+    .container {
+      text-align: center;
+      background-color: #2d333b;
+      border-radius: 10px;
+      padding: 30px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    }
+
+    .input-box {
+      padding: 10px;
+      border-radius: 5px;
+      border: none;
+      font-size: 1em;
+      margin-bottom: 20px;
+      width: 200px;
+      text-align: center;
+    }
+
+    .button {
+      background-color: #4b7b8a;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-size: 1.2em;
+      padding: 15px 30px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+
+    .button:hover {
+      background-color: #65a4af;
+    }
+
+    p {
+      font-size: 1.5em;
+      margin-top: 20px;
+      color: #81b0b6;
+    }
+
+    /* Mobile Responsiveness */
+    @media (max-width: 768px) {
+      h1 {
+        font-size: 2em;
+      }
+
+      .button {
+        padding: 12px 24px;
+      }
+
+      .input-box {
+        width: 150px;
+      }
+
+      p {
+        font-size: 1.2em;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>Random Number Generator</h1>
+    
+    <input
+      type="number"
+      id="maxNumber"
+      class="input-box"
+      placeholder="Enter max number"
+      min="1"
+    >
+    
+    <br>
+    <button class="button" onclick="generateNumber()">Generate</button>
+    <p id="randomNumber"></p>
+  </div>
+
+  <script>
+    function generateNumber() {
+      const max = parseInt(document.getElementById('maxNumber').value);
+
+      if (isNaN(max) || max <= 0) {
+        document.getElementById('randomNumber').textContent = "Please enter a valid number greater than 0.";
+        return;
+      }
+
+      const randomNum = Math.floor(Math.random() * max) + 1;
+      document.getElementById('randomNumber').textContent = "Random Number (1 to " + max + "): " + randomNum;
+    }
+  </script>
+
+</body>
+</html>

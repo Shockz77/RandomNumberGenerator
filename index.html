@@ -6,44 +6,92 @@
   <title>Random Number Generator</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+      background-color: #171a21;
+      color: #d1d3d8;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
+    .container {
       text-align: center;
-      padding-top: 50px;
-      background-color: #f4f4f4;
+      background-color: #2a2d34;
+      border-radius: 10px;
+      padding: 30px;
+      width: 100%;
+      max-width: 400px;
     }
+
     h1 {
-      color: #333;
-    }
-    #result {
       font-size: 2em;
-      margin: 20px;
-      color: #007BFF;
+      margin-bottom: 20px;
+      color: #1e88e5;
+      font-weight: 600;
     }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      font-size: 1.2em;
+      border: 1px solid #444;
+      border-radius: 5px;
+      background-color: #333;
+      color: #d1d3d8;
+      margin-bottom: 20px;
+    }
+
+    input:focus {
+      border-color: #1e88e5;
+      outline: none;
+    }
+
     button {
-      padding: 10px 20px;
-      font-size: 1em;
-      background-color: #007BFF;
+      background-color: #1e88e5;
       color: white;
+      padding: 12px 20px;
+      font-size: 1.2em;
       border: none;
       border-radius: 5px;
       cursor: pointer;
+      transition: background-color 0.3s;
     }
+
     button:hover {
-      background-color: #0056b3;
+      background-color: #1565c0;
+    }
+
+    #result {
+      font-size: 1.5em;
+      margin-top: 20px;
+      color: #ffeb3b;
+      font-weight: 600;
     }
   </style>
 </head>
 <body>
-  <h1>Random Number Generator</h1>
-  <div id="result">Click the button!</div>
-  <button onclick="generate()">Generate</button>
+  <div class="container">
+    <h1>Random Number Generator</h1>
+    <div>
+      <label for="max-number">Enter max number:</label>
+      <input type="number" id="max-number" min="1" placeholder="e.g. 100">
+    </div>
+    <button onclick="generate()">Generate</button>
+    <div id="result">Click the button to generate a number!</div>
+  </div>
 
   <script>
     function generate() {
-      const min = 1;
-      const max = 100;
-      const randomNumber = Math.floor(Math.random() * (max - min + 1)) + min;
-      document.getElementById('result').textContent = randomNumber;
+      const maxNumber = document.getElementById('max-number').value;
+      if (maxNumber < 1 || isNaN(maxNumber)) {
+        document.getElementById('result').textContent = 'Please enter a valid number greater than 0.';
+        return;
+      }
+      const randomNumber = Math.floor(Math.random() * maxNumber) + 1;
+      document.getElementById('result').textContent = 'Random Number: ' + randomNumber;
     }
   </script>
 </body>
